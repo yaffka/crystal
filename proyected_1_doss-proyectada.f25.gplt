@@ -1,0 +1,20 @@
+#!/usr/bin/gnuplot -persist 
+set term post enh color eps size 4cm,9cm
+set out 'proyected_1_doss-proyectada.f25.out' 
+unset xtics 
+unset key 
+set ylabel "Energy (eV)" 
+set ylabel font "20" 
+set style line 1 lt 2 lw 1
+#print tiks 
+#set xtics @tiks 
+#set ytics -12., 2.0 
+set mytics 5 
+#unset ytics 
+set style line 12 lc rgb 'black' lt 1 lw 2 
+set style line 10 lc rgb 'black' lt -1 lw 1 
+set grid back ls 12 
+set grid noytics 
+#file="bands.out"
+file="doss-proyectada.f25.dat"
+plot file u 2:1 w l lt -1,\
