@@ -28,7 +28,7 @@ int main()
 	int  option[2], path_gnu[2], cont[2];
 	double etop_dos[2], grid_path[100000];
 	FILE *en;
-        en=fopen("input.crystal","r");
+        en=fopen("crysplot.in","r");
 while(!feof(en))
 {
 	fscanf(en,"%d",&option[1]);

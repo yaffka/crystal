@@ -39,7 +39,7 @@ void DOS(char filename2[100], double etop_dos[2], int cont[2]) {
    }
  } while(test != EOF);
  cont[1]=num_path;
-printf("%d\n",cont[1]);
+//printf("%d\n",cont[1]);
  total_points = i;
  kini = emax;
 
