@@ -1,0 +1,36 @@
+set term post enh color eps size 4cm,9cm
+set out 'SnO2-PBE-doss.f25.dat'
+unset xtics
+unset key
+#set ylabel "Energy (eV)"
+#set ylabel font "20"
+set yrange [-10.0:15.0]
+set style line 1 lt 2 lw 1 
+#set xtics ("G" 0.0, "G" 0.449891, "X" 0.753129, "G" 1.320658, "A" 1.753614, "B" 2.055975, "B" 2.368215, "B" 2.671452, "B" 3.110632)
+#print tiks
+set xtics @tiks
+#set ytics -12., 2.0
+set mytics 5
+#unset ytics
+set style line 12 lc rgb 'black' lt 1 lw 2
+set style line 10 lc rgb 'black' lt -1 lw 1
+set grid back ls 12
+set grid noytics
+#file="bands.out"
+file="SnO2-PBE-doss.f25.dat"
+plot file u 1:2 w l lt 0 lw 2,\
+file u 1:3 w l lt -1,\
+file u 1:4 w l lt -1,\
+file u 1:5 w l lt -1,\
+file u 1:6 w l lt -1,\
+file u 1:7 w l lt -1,\
+file u 1:8 w l lt -1,\
+file u 1:9 w l lt -1,\
+file u 1:10 w l lt -1,\
+file u 1:11 w l lt -1,\
+file u 1:12 w l lt -1,\
+file u 1:13 w l lt -1,\
+file u 1:14 w l lt -1,\
+file u 1:15 w l lt -1,\
+file u 1:16 w l lt 0 lw 3,\
+file u 1:17 w l lt 0 lw 3,\
