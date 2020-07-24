@@ -13,7 +13,7 @@ void BS(char filename[100], double etop_dos[2],double grid_path[100000],int path
 	FILE *in, *on;
         char dat[8]=".dat", fileout[100];
   
-  sprintf(fileout,"%s%s",filename,dat);
+  change(fileout,filename,dat);//.dat
   in=fopen(filename,"r");
   on=fopen(fileout,"w");
   target_vale[1]=1;

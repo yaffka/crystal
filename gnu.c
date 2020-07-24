@@ -9,16 +9,16 @@ void gnuplot(int option[2], char filename[100],char filename2[100], double grid_
         int nband;
 switch(option[1]){
   case 1:	
-    sprintf(out_gn,"%s%s",filename,gn);
+    change(out_gn,filename,gn); //.dat
     on=fopen(out_gn,"w");
     in=fopen(filename,"r");
     fscanf(in,"%3s%1d%4s%5d",trash, &nband,trash, &nband);
     fclose(in);
 
     fprintf(on,"#!/usr/bin/gnuplot -persist \nset term post enh color eps size 4cm,9cm \n");
-    sprintf(picture,"%s%s",filename,out_pic);
+    change(picture,filename,out_pic); //.eps
     fprintf(on,"set out '%s' \n",picture);
-    fprintf(on,"unset xtics \nunset key \n#set ylabel \"Energy (eV)\" \n#set ylabel font \"20\" \nset style line 1 lt 2 lw 1\n");
+    fprintf(on,"unset xtics \nunset key \nset ylabel \"Energy (eV)\" \n#set ylabel font \"20\" \nset style line 1 lt 2 lw 1\n");
     if (nband>1){
        fprintf(on,"set xtics(\"K1\" 0.0,");
        for(int j=1;j<path_gnu[2];j++){
@@ -27,7 +27,7 @@ switch(option[1]){
        fprintf(on,")\n");
     }
     fprintf(on,"#print tiks \n#set xtics @tiks \n#set ytics -12., 2.0 \nset mytics 5 \n#unset ytics \nset style line 12 lc rgb 'black' lt 1 lw 2 \nset style line 10 lc rgb 'black' lt -1 lw 1 \nset grid back ls 12 \nset grid noytics \n#file=\"bands.out\"\n");
-    sprintf(gnuplot_file,"%s%s",filename,dat);
+    change(gnuplot_file,filename,dat);//.dat
     fprintf(on,"file=\"%s\"\n",gnuplot_file);
     if(nband>1){
     fprintf(on,"plot file u 1:2 w l lt 0 lw 2,\\\n");
@@ -43,14 +43,14 @@ switch(option[1]){
     //imprime todas las proyecciones menos la total
  if(cont[1]>1){
     for(int j=1;j<cont[1];j++){
-	sprintf(out_gn,"proyected_%d_%s%s", j,filename2, gn); //.gplt
+        change(out_gn,filename2,gn); //.gplt
         on=fopen(out_gn,"w");
 	fprintf(on,"#!/usr/bin/gnuplot -persist \nset term post enh color eps size 4cm,9cm\n");
-        sprintf(picture,"proyected_%d_%s%s",j, filename2, out_pic);    //.eps
+        change(picture,filename2,out_pic);//.eps
         fprintf(on,"set out '%s' \n",picture);
         fprintf(on,"unset xtics \nunset key \nset ylabel \"Energy (eV)\" \nset ylabel font \"20\" \nset style line 1 lt 2 lw 1\n");
         fprintf(on,"#print tiks \n#set xtics @tiks \n#set ytics -12., 2.0 \nset mytics 5 \n#unset ytics \nset style line 12 lc rgb 'black' lt 1 lw 2 \nset style line 10 lc rgb 'black' lt -1 lw 1 \nset grid back ls 12 \nset grid noytics \n#file=\"bands.out\"\n");
-        sprintf(gnuplot_file,"%s%s",filename2,dat); //filename2 .dat
+        change(gnuplot_file,filename2,dat);//.dat
         fprintf(on,"file=\"%s\"\n",gnuplot_file);
         fprintf(on,"plot file u %d:1 w l lt -1,\\\n",j+1);
 	fclose(on);
@@ -58,18 +58,18 @@ switch(option[1]){
  }
         /*impresión de la densidad total y bandas*/
     //DOS
-    sprintf(out_gn,"proyected_total_%s%s",filename2, gn); //.gplt
+    change(out_gn,filename2,gn);//.gplt
     on=fopen(out_gn,"w");
     fprintf(on,"#!/usr/bin/gnuplot -persist \nset term post enh color eps size 6cm,12cm\n");
-    sprintf(picture,"proyected_total_%s%s", filename2, out_pic);    //.eps
+    change(picture,filename2,out_pic);//.eps
     fprintf(on,"set out '%s' \n",picture);
     fprintf(on,"unset xtics\nunset key\n#print tiks\n#set xtics @tiks\n#set ytics -12., 2.0\nset mytics 5\n#unset ytics\nset style line 12 lc rgb 'black' lt 1 lw 2\nset style line 10 lc rgb 'black' lt -1 lw 1\nset grid back ls 12\nset grid noytics\n#file=\"bands.out\"\n#set yrange[*:*]\nset multiplot layout 1,2\nunset ytics\n");
-    sprintf(gnuplot_file,"%s%s",filename2,dat); //filename2 .dat
+    change(gnuplot_file,filename2,dat);//.dat
     fprintf(on,"file=\"%s\"\n",gnuplot_file);
     fprintf(on,"set xtics(\"\"0.0)\nset origin 0.5,0.0\nplot file u %d:1 w l lt -1\n",cont[1]+1);
     //Bands
     fprintf(on,"set origin 0.12,0.0\n");
-    sprintf(gnuplot_file,"%s%s",filename,dat);//filename .dat
+    change(gnuplot_file,filename,dat);//.dat
     fprintf(on,"file=\"%s\"\n",gnuplot_file);
     fprintf(on,"set ytics\nset ylabel \"Energy (eV)\"\nset ylabel font \"20\"\nset style line 1 lt 2 lw 1\n");
     //escanear en nbandas 

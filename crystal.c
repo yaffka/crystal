@@ -7,7 +7,7 @@
  * compiler: $ gcc lectura_bandas_crystal.c gnu.c lectura_dos_crystal.c crystal.c -o crysplot
  * run:  $./crysplot 
  * conditions: make file: "input.crystal" 
- *           input.crystal:include all input files .f25 (or fort.25) in the following order
+ *           crysplot.in:include all input files .f25 (or fort.25) in the following order
  *                $ 1 filename.f25 
  *                $ 2 structure_band.f25 DOS.f25
  *                $ 1 ...
@@ -16,10 +16,10 @@
  *    or include 2 generate density states but remenber include two files
  *    you can include options you want in any order
  * returns two files 
- *      1) filename.f25.dat: this file contains values for plot density states or DOS 
- *      2) filename.f25.glpt:code for plot in gnuplot which return one file
- *      called filename.f25.out (run: $ gnuplot *.out), this file( .glpt) you could  edit 
- *           i) filename.f25.out:this file is a plot of  input file
+ *      1) filename.dat: this file contains values for plot density states or DOS 
+ *      2) filename.glpt:code for plot in gnuplot which return one file
+ *      called filename.eps (run: $ gnuplot *.out), this file( .glpt) you could  edit 
+ *           i) filename.eps:this file is a plot of  input file
  * */
 
 int main()

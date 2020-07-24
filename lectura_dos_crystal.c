@@ -13,7 +13,7 @@ void DOS(char filename2[100], double etop_dos[2], int cont[2]) {
  FILE *input, *output;
 
  etop=etop_dos[1];
- sprintf(out,"%s%s",filename2,dat);
+ change(out,filename2,dat);//.dat
  input=fopen(filename2,"r");
  output=fopen(out,"w");
 
