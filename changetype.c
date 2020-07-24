@@ -2,7 +2,6 @@
 #include <string.h>
 #include "funtion.h"
 
-//void change(char *, char *);
 void change(char *p, char *file,char *type)
 {
 	strcpy(p,file);
