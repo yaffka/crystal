@@ -4,7 +4,7 @@
 /*Jorge Garza
  *M.R-A.
  *Y.Z-G. 
- * compiler: $ gcc lectura_bandas_crystal.c gnu.c lectura_dos_crystal.c crystal.c -o crysplot
+ * compiler: $ gcc changetype.c lectura_bandas_crystal.c gnu.c lectura_dos_crystal.c crystal.c -o crysplot
  * run:  $./crysplot 
  * conditions: make file: "input.crystal" 
  *           crysplot.in:include all input files .f25 (or fort.25) in the following order
@@ -18,8 +18,8 @@
  * returns two files 
  *      1) filename.dat: this file contains values for plot density states or DOS 
  *      2) filename.glpt:code for plot in gnuplot which return one file
- *      called filename.eps (run: $ gnuplot *.out), this file( .glpt) you could  edit 
- *           i) filename.eps:this file is a plot of  input file
+ *      called filename.eps (run: $ gnuplot *.gplt), this file( .glpt) you could  edit 
+ *           i) filename.eps:this file is a plot 
  * */
 
 int main()
